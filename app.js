@@ -8,10 +8,26 @@ const rock = document.getElementById('rock');
 const paper = document.getElementById('paper');
 const scissors = document.getElementById('scissors');
 
-const resultBanner = document.createElement('div');
-const container = document.getElementById('container');
+const resultBanner = document.createElement('h1');
+const container = document.getElementById('result');
 
-container.appendChild(resultBanner);
+
+const playerTracker = document.getElementById('playerScore');
+const computerTracker = document.getElementById('computerScore');
+
+container.append(resultBanner);
+
+
+
+
+
+
+
+
+
+
+
+
 
     
     function getComputerChoice () {
@@ -47,6 +63,9 @@ container.appendChild(resultBanner);
                 default:
                     console.log("Error");
             }
+
+
+
             
             return 1;
 
@@ -58,11 +77,11 @@ container.appendChild(resultBanner);
                     console.log('Ai wins, Paper beats Rock!');
                     break;
                 case 1:
-                    resultBanner.textContent = "Ai wins!, Scissors beats Paper!";
+                    resultBanner.textContent = "Ai wins, Scissors beats Paper!";
                     console.log('Ai wins!, Scissors beats Paper!');
                     break;
                 case 2:
-                    resultBanner.textContent = "Ai wins!, Rock beats Scissors!";
+                    resultBanner.textContent = "Ai wins, Rock beats Scissors!";
                     console.log('Ai wins!, Rock beats Scissors!!');
                     break;
                 default:
@@ -79,29 +98,49 @@ container.appendChild(resultBanner);
     }
 
 
-    function game () {
-
-        let playerSelection = window.prompt("Enter choice")
-
-        
-        return playRound(playerSelection, computerSelection);
-
-    }
-
-
-
-
 
 rock.addEventListener('click', () => {
-    playRound(0, getComputerChoice());
+    let result = playRound(0, getComputerChoice());
+
+    if ( result === 1 ){
+        playerScore += 1;
+    }else if (result === 2) {
+        computerScore += 1;
+    }
+
+    playerTracker.textContent += playerScore;
+    computerTracker.textContent += computerScore;
+
+
 })
 
 paper.addEventListener('click', () => {
-     playRound(1, getComputerChoice());
+     let result = playRound(1, getComputerChoice());
+
+     if ( result === 1 ){
+        playerScore += 1;
+    }else if (result === 2) {
+        computerScore += 1;
+    }
+
+    playerTracker.textContent += playerScore;
+    computerTracker.textContent += computerScore;
+     
 })
 
 scissors.addEventListener('click', () => {
-     playRound(2, getComputerChoice());
+     let result = playRound(2, getComputerChoice());
+
+     if ( result === 1 ){
+        playerScore += 1;
+    }else if (result === 2) {
+        computerScore += 1;
+    }
+
+    playerTracker.textContent += playerScore;
+    computerTracker.textContent += computerScore;
+
+     
 })
 
 

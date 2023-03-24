@@ -7,18 +7,40 @@
         <title></title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="">
+        <link rel="stylesheet" href="style.css">
+
+        
     </head>
     <body>
 
+        
+        
         <div class="container" id="container">
 
-            <h1>Rock Paper Scissors</h1>
+            <div class="result" id="result">
+                <h1>Choose an option</h1>
+            </div>
+            
 
-            <button id="rock"> Rock</button>
-            <button id="paper"> Paper</button>    
-            <button id="scissors"> Scissors</button>
+            <div class="optionContainer">   
 
+                <button class="rock" id="rock"><img src="images/rock.png" ></img></button>
+
+                <button class="paper" id="paper"><img src="images/paper.png" ></img> </button>
+
+                <button  class="scissors" id="scissors"><img src="images/scissors.png"></img></button>
+                   
+                
+
+            </div>
+
+
+            <div class="scoreContainer" id="score">
+                <h2 class="playerScore" id="playerScore">Player: </h2>
+                <h2 class="computerScore" id="computerScore">Computer: </h2>
+            </div>
+
+            
 
         </div>
         
