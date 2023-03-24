@@ -1,40 +1,74 @@
+let playerScore = 0;
+let computerScore = 0;
+
+
+
+
+const rock = document.getElementById('rock');
+const paper = document.getElementById('paper');
+const scissors = document.getElementById('scissors');
+
+const resultBanner = document.createElement('div');
+const container = document.getElementById('container');
+
+container.appendChild(resultBanner);
+
+    
     function getComputerChoice () {
 
         // Rock = 0, Paper = 1, Scissors = 2
-
-
-        return Math.floor(Math.random() * 3);
+        return  Math.floor(Math.random() * 3);
     }
 
     function playRound (playerSelection, computerSelection) {
         
         // result = 0 -> draw , result = 1 -> win, result = 2 -> lose
 
-        if (playerSelection.toLowerCase() === "rock") {
-            playerSelection = 0;
-            playerWin = "You win, Rock beats Scissors!";
-            playerLose = "Computer wins, Paper beats Rock!";
-        }else if (playerSelection.toLowerCase() === "paper") {
-            playerSelection = 1;
-            playerWin = "You win, Paper beats Rock!";
-            playerLose = "Computer wins, Scissors beats Paper!";
-        }else if (playerSelection.toLowerCase() === "scissors") {
-            playerSelection = 2;
-            playerWin = "You win, Scissors beats Paper!";
-            playerLose = "Computer wins, Rock beats Paper!";
-        }else {
-            return "Error";
-        }
-
         const result = (3 + playerSelection - computerSelection) % 3;
 
-        
+        console.log(playerSelection, computerSelection);
+
 
         if (result === 1) {
-            console.log(playerWin);
+
+            switch(playerSelection) {
+                case 0:
+                    resultBanner.textContent = 'You win, Rock beats Scissors';
+                    console.log('You win, Rock beats Scissors!');
+                    break;
+                case 1:
+                    resultBanner.textContent = 'You win, Paper beats Rock!';
+                    console.log('You win, Paper beats Rock!');
+                    break;
+                case 2:
+                    resultBanner.textContent = 'You win, Scissors beats Paper!';
+                    console.log('You win, Scissors beats Paper!');
+                    break;
+                default:
+                    console.log("Error");
+            }
+            
             return 1;
+
         }else if (result === 2) {
-            console.log(playerLose)
+
+            switch(playerSelection) {
+                case 0:
+                    resultBanner.textContent = 'Ai wins, Paper beats Rock!';
+                    console.log('Ai wins, Paper beats Rock!');
+                    break;
+                case 1:
+                    resultBanner.textContent = "Ai wins!, Scissors beats Paper!";
+                    console.log('Ai wins!, Scissors beats Paper!');
+                    break;
+                case 2:
+                    resultBanner.textContent = "Ai wins!, Rock beats Scissors!";
+                    console.log('Ai wins!, Rock beats Scissors!!');
+                    break;
+                default:
+                    console.log("Error");
+            }
+
             return 2;
         } else {
             console.log("Draw");
@@ -49,39 +83,27 @@
 
         let playerSelection = window.prompt("Enter choice")
 
-        const computerSelection = getComputerChoice();
         
-
         return playRound(playerSelection, computerSelection);
 
     }
-    
-    let playerScore = 0;
-    let computerScore = 0;
 
-    for (let i = 0 ; i < 5 ; i++){
-        
-        
 
-        let outcome = game();
 
-        if( outcome === 1) {
-            playerScore = playerScore + 1;
-        }else if (outcome === 2) {
-            computerScore = computerScore + 1;
-        }
 
-        console.log("Player Score: " + playerScore + "\n" + "Computer Score: " + computerScore);
 
-    }
+rock.addEventListener('click', () => {
+    playRound(0, getComputerChoice());
+})
 
-    if (playerScore > computerScore ) {
-        console.log("Player wins out of 5 games!");
-    }else if (playerScore < computerScore) {
-        console.log("Computer wins out of 5 games!")
-    }else if (playerScore === computerScore) {
-        console.log("DRAW!!");
-    }
+paper.addEventListener('click', () => {
+     playRound(1, getComputerChoice());
+})
+
+scissors.addEventListener('click', () => {
+     playRound(2, getComputerChoice());
+})
+
 
    
 
