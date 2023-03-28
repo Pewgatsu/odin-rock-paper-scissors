@@ -22,7 +22,7 @@ body {
   gap: 50px;
 }
 
-.optionContainer img, button {
+.optionContainer img, .optionContainer button {
   border-radius: 50%;
 }
 
@@ -32,7 +32,7 @@ body {
 }
 
 .optionContainer button:hover{
-  background-color: palevioletred;
+  background-color: pink;
 }
 
 
@@ -48,5 +48,18 @@ body {
   text-align: left;
 }
 
+
+.resetContainer {
+  text-align: center;
+}
+
+.resetButton{
+  visibility: hidden;
+  padding: 20px;
+  border-radius: 10px;
+  border: 1px none;
+  background-color: blue;
+  color: white;
+}
 
 
